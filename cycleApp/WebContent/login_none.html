@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>로그인</title>
+<link rel="stylesheet" type="text/css" href="css/home.css" />
+<style type="text/css">
+#msgbox {
+	font-size:3em;
+	top:600px;
+	height:550px;
+	
+}
+#btn {
+	width: 100%;
+	margin-bottom: 30px;
+}
+#content {
+	margin-top:50px;
+	text-align:right;
+}
+input[type="text"], input[type="password"] {
+	padding:15px;
+	margin-bottom:30px;
+}
+#pw {
+	font-size:0.8em;
+}
+#btn {
+	width:300px;
+	margin-right:10px;
+	font-size:1em;
+}
+</style>
+
+</head>
+<body>
+<div id="background">
+	<div id="msgbox">
+<form action="login_none.jsp" method="post">
+	<div id="content">
+		<label>ID</label> : <input type="text" name="id" size="12" /><br>
+		<label id="pw">PASSWORD</label> : <input type="password" name="passwd" size="12"/><br>
+	</div>
+	<div id="btnarea">
+		<input type="submit" id="btn" value="LOGIN"/>
+		<input type="button" id="btn" value="CANCEL" onclick="location.href='home.html'"/>
+	</div>
+</form>
+</div>
+</div>
+
+</body>
+</html>

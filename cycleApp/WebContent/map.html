@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR"> 
+<title>지도</title> 
+<link rel="stylesheet" type="text/css" href="css/map.css" />
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/map.js"></script>
+<!-- 꼼수시작 -->
+<script>
+(function(e, d) {
+if (typeof d == "object") {
+	for (var f in d) {
+		if (d.hasOwnProperty(f)) {
+			e[f] = e[f] || d[f], arguments.callee(e[f], d[f]);
+		}
+	}
+}
+})(this, {
+daum: {
+	maps: {
+		VERSION: {
+			ROADMAP: "502030road",
+			HYBRID: "502030road",
+			ROADVIEW: "1.00",
+			ROADVIEW_FLASH: "140520a",
+			ROADVIEW_AJAX: "140508"
+		}
+	}
+}
+});
+</script>
+<script src="http://apis.daum.net/maps/real/maps3.67.js"></script>
+<!-- 꼼수끝 --> 
+</head> 
+<body>
+	<div id="address">
+		<label>위도 : </label><input type="text" id="lat" size="5"><br>
+		<label>경도 : </label><input type="text" id="lng" size="5">
+	</div>
+	<div id="map"></div>
+	<input type="button" id="btnZoomIn" onclick="zoomIn()" value="+">
+	<input type="button" id="btnZoomOut" onclick="zoomOut()" value="-">
+	<input type="button" id="rideview" onclick="location.href='cycle.html'" value="주행화면보기">
+	
+</body> 
+</html> 

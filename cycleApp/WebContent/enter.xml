@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<enter>
+	<id>test1</id>
+	<passwd>1234</passwd>
+	<name>길동</name>
+	<sex>남</sex>
+	<height>175</height>
+	<weight>70</weight>
+</enter>

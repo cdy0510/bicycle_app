@@ -1,0 +1,30 @@
+<!doctype HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>API Demo - Kakao Javascript SDK</title>
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+<a id="kakao-login-btn"></a>
+
+<script>
+  // 사용할 앱의 Javascript 키를 설정해 주세요.
+  Kakao.init('b6312d98d291393db1e60f255b884a8b');
+  // 카카오 로그인 버튼을 생성합니다.
+  Kakao.Auth.createLoginButton({
+    container: '#kakao-login-btn',
+    success: function(authObj) {
+      // 로그인 성공시 API를 호출합니다.
+      Kakao.API.request({
+        url: '/v1/user/me',
+        success: function(res) {
+          alert(JSON.stringify(res));
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>

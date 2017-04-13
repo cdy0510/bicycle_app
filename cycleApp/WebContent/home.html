@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>자전거 Web App</title>
+<script>
+function popid(){window.open('id.html','newwindow','top=10, left=10, width=400, height=250');}
+function poppw(){window.open('pw.html','newwindow','top=10, left=10, width=400, height=250');}
+</script>
+<link rel="stylesheet" type="text/css" href="css/home.css" />
+<style type="text/css">
+#nonelogin {
+	position: absolute;
+	top:470px;
+	left:930px;
+	width:100px;
+	height:100px;
+	background:rgba(0,0,0,0.7);
+	color:#fff;
+	font-weight:bold;
+	font-size:2.5em;
+	border:0 none;
+	border-radius:100px;
+	z-index:5;
+	cursor:pointer;
+	
+	
+}
+#btn {
+	width: 100%;
+	height: 150px;
+	padding:10px 20px;
+	background: #FFA800;
+	border:0 none;
+	border-radius: 25px;
+	font-size: 1.2em;
+	color: #fff;
+	font-family: 'Nanum Gothic' , Sans-serif;
+}
+a {
+	text-decoration: none;
+	color: black;
+}
+a:hover {
+	color: #FFA800;
+}
+</style>
+
+</head>
+<body>
+<div id="background">
+	<input type="button" id="nonelogin" value="X" onclick="location.href='alert.jsp'"/>
+	<div id="msgbox">
+		반갑습니다! 회원가입을 해주세요.<br>
+		<input type="button" id="btn" value="JOIN" onclick="location.href='join.html'"/><br><br>
+		이미 회원이신가요?<br>
+		<input type="button" id="btn" value="LOGIN" onclick="location.href='login.html'"/><br>
+		<a href="javascript:popid()">ID</a> | <a href="javascript:poppw()">PASSWORD</a>
+	</div>
+</div>
+
+</body>
+</html>

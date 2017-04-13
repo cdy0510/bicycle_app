@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<title>자전거 Web App</title>
+<link rel="stylesheet" type="text/css" href="css/cycle.css" />
+<link rel="stylesheet" type="text/css" href="css/map.css" />
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/bicycle.js"></script>
+<!-- 꼼수시작 -->
+<script>
+(function(e, d) {
+if (typeof d == "object") {
+	for (var f in d) {
+		if (d.hasOwnProperty(f)) {
+			e[f] = e[f] || d[f], arguments.callee(e[f], d[f]);
+		}
+	}
+}
+})(this, {
+daum: {
+	maps: {
+		VERSION: {
+			ROADMAP: "502030road",
+			HYBRID: "502030road",
+			ROADVIEW: "1.00",
+			ROADVIEW_FLASH: "140520a",
+			ROADVIEW_AJAX: "140508"
+		}
+	}
+}
+});
+</script>
+<script src="http://apis.daum.net/maps/real/maps3.67.js"></script>
+<!-- 꼼수끝 --> 
+
+<META NAME="owner" CONTENT="Robert Alegrid">
+<META NAME="title" CONTENT="Timer Script">
+</head>
+
+
+<body>
+	<div id="cycleview">
+		<div id="top">
+			<img id="circle" src="img/circle.png">
+			<img id="circle2" src="img/circle.png">
+			<img id="cycle" src="img/cycle2.png">
+			<img id="rest" class="divHide" src="img/rest.png">
+			<span id="start"><img id="spbtn" src="img/running.png"> </span>
+		</div>
+		<div id="contentarea">
+		<form name="display" onreset="startover()" method="post" action="result.jsp">
+			<div id="content">
+			<div id="s"><span id="speed">0.0
+			</span><label id="unit">km/h</label></div>
+			<div id="subs"><span id="maxspeed">
+			<input type="hidden" name="maxspeed" value="0.0" size=1>
+			</span><label id="unit"></label></div>
+			<div id="t"><img id="timer" src="img/timer.png">주행 시간</div>
+			<div id="c">
+				<input type="text" name="hour" value="00" size="2" readonly="readonly"> :
+				<input type="text" name="minutes" value="00" size="2" readonly="readonly"> : 
+				<input type="text" name="seconds" value="00" size="2" readonly="readonly">
+			</div>
+			<div id="subc">
+				<input type="text" name="ph" value="00" size="2" readonly="readonly"> : 
+				<input type="text" name="pm" value="00" size="2" readonly="readonly"> : 
+				<input type="text" name="ps" value="00" size="2" readonly="readonly"> 
+			</div>
+			  <div id="t"><img id="work" src="img/work.png">주행 거리</div>
+			    <div id="c">
+			    <input type="text" id="distance" name="distance" value="0.0" size="4" readonly="readonly"/>
+			  	<label id="unit">km</label>
+			  </div>
+			  </div>
+			
+			<div id="btnarea">
+				<input type="reset" class="btn" name="reset" value="RESET">
+				<input type="submit" class="btn" name="result" value="STOP">
+				<input type="button" class="btn" onclick="mapview()" value="LOCATION">
+			</div>
+		</form>
+		</div>
+	</div>
+	<div id="mapview">
+		<input type="button" id="btncycle" onclick="cycleview()" value="<">
+		<div id="address">
+			<label>위도 : </label><input type="text" id="lat" size="23"><br>
+			<label>경도 : </label><input type="text" id="lng" size="23">
+		</div>
+		<div id="map"></div>
+		<input type="button" id="btnZoomIn" onclick="zoomIn()" value="+">
+		<input type="button" id="btnZoomOut" onclick="zoomOut()" value="-">
+		
+	</div>
+</body> 
+</html>

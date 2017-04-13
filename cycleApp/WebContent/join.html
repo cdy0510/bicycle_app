@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>회원가입</title>
+<script src="js/jquery-2.1.0.min.js"></script>
+<script>
+function idsearch(){
+	window.open('idsearch.html','newwindow','top=10, left=10, width=400, height=250');
+}
+
+function checkvalue() {
+	var passwd = document.getElementById('passwd').value;
+	var repasswd = document.getElementById('repasswd').value;
+	if(passwd != repasswd) {
+		$("#checkmsg").removeClass('ok');
+		document.getElementById('checkmsg').innerHTML = "x";
+	}else {
+		$("#checkmsg").addClass('ok');
+		document.getElementById('checkmsg').innerHTML = "ok";
+	}
+}
+
+function mySubmit(index){
+	if (index == 1){
+		document.joinForm.action='search.jsp';
+		document.joinForm.submit();
+	}
+	if (index == 2){
+		if(document.joinForm.id.value == "" || document.joinForm.passwd.value == ""
+            || document.joinForm.name.value == "" || document.joinForm.weight.value == ""
+            || document.joinForm.height.value == "") {
+	        alert("입력 되지 않은 값이 있습니다. 모두 작성해 주세요.");
+	    }else if(document.joinForm.passwd.value != document.joinForm.repasswd.value) { // 비밀번호가 맞지 않을 경우 submit 차단
+			alert("재입력한 비밀번호가 맞지 않습니다. 다시 확인해 주세요.");
+		}else {
+			document.joinForm.action='joinPro.jsp';
+			document.joinForm.submit();
+		}
+	}
+}
+</script>
+<link rel="stylesheet" type="text/css" href="css/home.css" />
+<style type="text/css">
+#btn {
+	width: 300px;
+	height: 100px;
+}
+#msgbox {
+	height:750px;
+	text-align:left;
+}
+#left {
+	float:left;
+	text-align:right;
+}
+#checkmsg {
+	font-size:0.8em;
+	font-weight:bold;
+	color:red;
+}
+#checkmsg.ok {
+	color:green;
+}
+</style>
+</head>
+<body>
+<div id="background">
+	<div id="msgbox">
+	<form name="joinForm" method="post">
+		<div id="left">
+			ID : <br>
+			PASSWORD : <br><br>
+			NAME : <br>
+			GENDER : <br>
+			WEIGHT : <br>
+			HEIGHT : <br>
+		</div>
+		<div id="right">
+			<input type="text" name="id" size="10"/>
+			<input type="button" id="b" name="search" value="check" onclick='mySubmit(1)'/><br>
+			<input type="password" name="passwd" id="passwd" size="13" onblur="checkvalue()"/><br>
+			<input type="password" id="repasswd" size="13" onblur="checkvalue()"/>&nbsp;<span id="checkmsg"></span><br>
+			<input type="text" name="name" size="10"/> <br>
+			<select name="sex">
+			 <option>없음</option>
+			 <option value="남">남</option>
+			 <option value="여">여</option>
+			</select><br>
+			<input type="text" name="height" size="4"/>&nbsp;cm<br>
+			<input type="text" name="weight" size="4"/>&nbsp;kg<br>
+		</div>
+		<div id="btnarea">
+			<input type="button" id="btn" value="JOIN" onclick='mySubmit(2)'/>
+			<input type="button" id="btn" value="CANCEL" onclick="location.href='home.html'"/>
+		</div>
+	</form>
+	</div>
+</div>
+</body>
+</html>

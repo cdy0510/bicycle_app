@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>아이디찾기</title>
+<style type="text/css">
+#msgbox {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+    border-radius: 50px;
+	background: rgba(255,255,255,0.8);
+	box-shadow: 0px 0px 50px #888888;
+	text-align:center;
+	font-size: 2.5em;
+	line-height:90px;
+}
+#btn {
+	width: 400px;
+	height: 130px;
+	background: #FFA800;
+	border:0 none;
+	border-radius: 25px;
+	font-size: 1.2em;
+	color: #fff;
+	font-family: 'Nanum Gothic' , Sans-serif;
+}
+input[type="text"], input[type="password"], select {
+	border:0 none;
+	border-bottom:1px solid #FFA800;
+	background: none;
+	font-size: 1em;
+}
+</style>
+<script>
+ function Pop_close()
+    {
+        window.close();
+    }
+</script>
+</head>
+<body>
+<div id="msgbox">
+	<br><br>
+	<form action="idPro.jsp" method="post">
+	NAME:<input type="text" name="name"/><br><br>
+	<input type="submit" id="btn" value="ID SEARCH"/>
+	<input type="button" id="btn" value="CANCEL" onclick="Pop_close()" />
+	</form>
+</div>
+</body>
+</html>
